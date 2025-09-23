@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.messages;
+package org.firstinspires.ftc.teamcode.RoadRunnerPinpoint.messages;
 
 public final class TankCommandMessage {
     public long timestamp;
