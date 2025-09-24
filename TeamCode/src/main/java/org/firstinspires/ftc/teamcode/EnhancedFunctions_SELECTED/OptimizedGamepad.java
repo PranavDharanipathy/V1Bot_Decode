@@ -17,9 +17,9 @@ public final class OptimizedGamepad {
 
     private Gamepad gamepad;
 
-    public Booleans booleans;
-    public Floats floats;
-    public Commands commands;
+    public static Booleans booleans;
+    public static Floats floats;
+    public static Commands commands;
 
     public OptimizedGamepad(Gamepad gamepad) {
 

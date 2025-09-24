@@ -5,13 +5,17 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.Servo;
 
+import org.firstinspires.ftc.teamcode.Constants;
+
 @Config
 @TeleOp (group = "testing")
 public class SpinServoToZero extends OpMode {
 
-    public static String servoName;
+    public static double SERVO_POSITION = 0;
 
-    public static Servo.Direction servoDirection;
+    public static String servoName = "";
+
+    public static Servo.Direction servoDirection = Servo.Direction.FORWARD;
 
     private Servo servo;
 
@@ -22,11 +26,7 @@ public class SpinServoToZero extends OpMode {
         servo.setDirection(servoDirection);
     }
 
-    @Override
-    public void start() {
-
-        servo.setPosition(0);
+    public void loop() {
+        servo.setPosition(SERVO_POSITION);
     }
-
-    public void loop() {}
 }

@@ -10,24 +10,27 @@ import org.firstinspires.ftc.teamcode.EnhancedFunctions_SELECTED.BasicVeloMotor;
 @TeleOp (group = "tuning")
 public class BasicVeloMotorTuner extends OpMode {
 
+    public static String motorName = "";
+
     private BasicVeloMotor motor;
 
     public static double VELOCITY = 500;
 
     public static double KP = 0;
+    public static double KI = 0;
     public static double KD = 0;
     public static double KF = 0;
 
     @Override
     public void init() {
 
-        motor = new BasicVeloMotor(hardwareMap, "motor");
+        motor = new BasicVeloMotor(hardwareMap, motorName);
     }
 
     @Override
     public void loop() {
 
-        motor.setVelocityPDFCoefficients(KP, KD, KF); //coeffs are updated
+        motor.setVelocityPIDFCoefficients(KP, KI, KD, KF); //coeffs are updated
 
         motor.setVelocity(VELOCITY);
 
