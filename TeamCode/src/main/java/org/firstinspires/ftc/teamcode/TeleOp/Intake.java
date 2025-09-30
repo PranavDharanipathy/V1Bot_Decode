@@ -13,6 +13,8 @@ public class Intake {
 
     public void provideComponents(BasicVeloMotor intake, BasicVeloMotor intakeBelt, OptimizedGamepad controller) {
 
+        this.controller = controller;
+
         this.intake = intake;
         this.intakeBelt = intakeBelt;
     }
@@ -29,10 +31,10 @@ public class Intake {
         else if (controller.booleans.left_trigger(Constants.OPTIMIZED_GAMEPAD_LT_THRESHOLD)) {
 
             hasStopped = false;
-            spin(-Constants.INTAKE_VELOCITY, -Constants.INTAKE_BELT_VELOCITY);
+            spin(Constants.REVERSE_INTAKE_VELOCITY, Constants.REVERSE_INTAKE_BELT_VELOCITY);
         }
         else if (!hasStopped) {
-            spin(0,0);
+            spin(0,0); // only stops once
             hasStopped = true;
         }
     }

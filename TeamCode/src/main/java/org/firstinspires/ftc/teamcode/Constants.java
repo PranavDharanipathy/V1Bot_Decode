@@ -8,6 +8,7 @@ public final class Constants {
 
     public static class DriveConstants {
 
+        public static float JOYSTICK_MINIMUM = 0.03f;
     }
 
     public static class CameraSystemConstants {
@@ -38,6 +39,8 @@ public final class Constants {
     public static double FEEDER_RESET_POSITION = 0;
     public static double FEEDER_FEED_TO_SHOOTER_POSITION = 1;
 
+    /// Aim start position
+    public static double AIM_START_POSITION = 0.4;
     /// As high of an angle bot can shoot at.
     public static double AIM_MIN_POSSIBLE_POSITION = 0.36;
     /// As low of an angle bot can shoot at.
@@ -46,20 +49,22 @@ public final class Constants {
     public static double AIM_MIN_POSITION = 0.16;
     /// As low of an angle bot is allowed shoot at.
     public static double AIM_MAX_POSITION = 0.425;
+    /// Aim increment - negative due to gearing
+    public static double AIM_POSITION_INCREMENT = -0.0001;
 
     //                                              {p,i,d,f}
     public static double[] SHOOTER_COEFFICIENTS = {24,1.2,1,1};
-    public static double[] INTAKE_COEFFICIENTS = {38,0.1,2,1};
+    public static double[] INTAKE_COEFFICIENTS = {26,0.5,1,1.2};
     public static double[] INTAKE_BELT_COEFFICIENTS = {25,0.08,3,2};
 
-    public static double INTAKE_VELOCITY = 2000;
-    public static double INTAKE_BELT_VELOCITY = 1300;
+    public static double INTAKE_VELOCITY = 3000;
+    public static double INTAKE_BELT_VELOCITY = 2200;
+    public static double INTAKE_BELT_FEED_VELOCITY = 1200;
+    public static double REVERSE_INTAKE_VELOCITY = -1500;
+    public static double REVERSE_INTAKE_BELT_VELOCITY = -1200;
 
     public static double SHOOTER_VELOCITY = 3000;
 
-    public static float JOYSTICK_MINIMUM = 0.02f;
-
     public static float OPTIMIZED_GAMEPAD_RT_THRESHOLD = 0.2f;
     public static float OPTIMIZED_GAMEPAD_LT_THRESHOLD = 0.2f;
-
 }

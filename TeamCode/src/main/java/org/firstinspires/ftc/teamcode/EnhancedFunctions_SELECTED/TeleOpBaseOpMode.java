@@ -56,9 +56,6 @@ public abstract class TeleOpBaseOpMode extends LinearOpMode {
     /// Initializing devices
     public void initializeDevices() {
 
-        controller1 = new OptimizedGamepad(gamepad1);
-        controller2 = new OptimizedGamepad(gamepad2);
-
         left_front = hardwareMap.get(DcMotor.class, Constants.MapSetterConstants.leftFrontMotorDeviceName);
         right_front = hardwareMap.get(DcMotor.class, Constants.MapSetterConstants.rightFrontMotorDeviceName);
         left_back = hardwareMap.get(DcMotor.class, Constants.MapSetterConstants.leftBackMotorDeviceName);
@@ -106,12 +103,23 @@ public abstract class TeleOpBaseOpMode extends LinearOpMode {
         intakeBelt.setDirection(DcMotorSimple.Direction.REVERSE);
 
         leftShooter.setDirection(DcMotorSimple.Direction.REVERSE);
+
+        rightShooter.setBrakeable(true);
+        leftShooter.setBrakeable(true);
+
+        right_front.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        left_front.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        right_back.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        left_back.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+
+        right_front.setDirection(DcMotor.Direction.REVERSE);
+        right_back.setDirection(DcMotor.Direction.REVERSE);
     }
 
     /// resets robot components to their proper starting positions
     public void runRobotReset() {
 
-        aim.setPosition(Constants.AIM_MAX_POSITION);
+        aim.setPosition(Constants.AIM_START_POSITION);
 
         sleep(1000);
 
